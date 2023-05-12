@@ -1,4 +1,4 @@
-<div class="card" style="width: 640px; margin-top: 10px;">
+<div class="card" style=" margin: 10px;">
     <h6 class="card-header">Dados</h6>
     <div class="card-body">
         <?php
@@ -11,10 +11,10 @@
             $temperatura = $array['temperatura'];
             $registro = $array['registro'];
             ?>
-            pH: <b>
+            pH: <b style="color: white; background-color: <?php if ($temperatura<6 or $temperatura>8.5){echo 'red';}else{echo 'green';}; ?>">
                 <?php echo $ph; ?>
-            </b> / Temperatura: <b>
-                <?php echo $temperatura; ?>
+            </b> / Temp.: <b style="color: white; background-color: <?php if ($temperatura<26 or $temperatura>32){echo 'red';}else{echo 'green';}; ?>">
+                <?php echo $temperatura; ?> ºC
             </b> / Registro:
             <b>
                 <?php echo date('d/m/Y h:i:s', strtotime($registro)) ?>
@@ -64,8 +64,8 @@
         chart.draw(data, google.charts.Line.convertOptions(options));
     }
 </script>
-<div class="card" style="width: 640px; margin-top: 10px; margin-bottom:10px">
-    <h6 class="card-header">Dados</h6>
+<div class="card" style="width:625px; margin: 10px;">
+    <h6 class="card-header">Gráfico</h6>
     <div class="card-body">
         <div id="chart_div" style="width: 600px; height: 500px; margin-top: 10px;"></div>
     </div>
