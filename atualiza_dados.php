@@ -1,4 +1,4 @@
-<div class="card" style=" margin: 10px;">
+<div class="card" style="margin: 10px;">
     <h6 class="card-header">Dados</h6>
     <div class="card-body">
         <?php
@@ -55,8 +55,7 @@
                 title: 'Leituras de pH e Temperatura',
                 subtitle: 'Ultimas 12 leituras'
             },
-            width: 600,
-            height: 500
+
         };
 
         var chart = new google.charts.Line(document.getElementById('chart_div'));
@@ -64,9 +63,9 @@
         chart.draw(data, google.charts.Line.convertOptions(options));
     }
 </script>
-<div class="card" style="width:625px; margin: 10px;">
+<div class="card" style="margin: 10px;">
     <h6 class="card-header">Gráfico</h6>
     <div class="card-body">
-        <div id="chart_div" style="width: 600px; height: 500px; margin-top: 10px;"></div>
+        <div id="chart_div" style="width: 100%; height: 500px; margin-top: 10px;"></div>
     </div>
 </div>
