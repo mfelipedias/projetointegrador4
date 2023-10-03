@@ -17,3 +17,4 @@ function atualizaDados() {
   $(document).ready(function() {
     atualizaDados();
   });
+  
