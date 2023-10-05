@@ -151,7 +151,7 @@
                                 <?php echo $temperatura; ?> ºC
                             </b><br>
                             <p class="text-muted" style="font-size:12px">Registro:
-                                <?php echo date('d/m/Y h:i:s', strtotime($registro)) ?>
+                                <?php echo date('d/m/Y G:i:s', strtotime($registro)) ?>
                             </p>
                         <?php } ?>
                     </div>
