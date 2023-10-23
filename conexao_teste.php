@@ -17,7 +17,13 @@ $temperatura = $_POST['temperatura'];
 $ph = $_POST['ph'];
 $sql = "INSERT INTO dados_sensor (temperatura, ph) VALUES ('$temperatura', '$ph')";
 if ($conn->query($sql) === TRUE) {
+   
+   if ($ph>=8.00) {
     $resposta = 100;
+   }
+   else {
+    $resposta = 0;
+   }
 } else {
     $conn->error;
     $resposta = 200;
