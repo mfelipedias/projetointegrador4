@@ -17,10 +17,9 @@ $temperatura = $_POST['temperatura'];
 $ph = $_POST['ph'];
 $sql = "INSERT INTO dados_sensor (temperatura, ph) VALUES ('$temperatura', '$ph')";
 if ($conn->query($sql) === TRUE) {
-    echo "Dados inseridos com sucesso";
     $resposta = 100;
 } else {
-    echo "Erro ao inserir dados: " . $conn->error;
+    $conn->error;
     $resposta = 200;
 
 }
