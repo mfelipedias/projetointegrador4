@@ -29,8 +29,8 @@ if ($conn->query($sql) === TRUE) {
         $analisealimento = $array['alimento'];
         }
         $hora=date('G:i:s', strtotime($analiseregistro));
-        $hora_inicio = '23:05:00';
-        $hora_fim = '23:05:04';
+        $hora_inicio = '00:15:00';
+        $hora_fim = '00:15:04';
 
    if ($hora >= $hora_inicio && $hora <= $hora_fim) {
     $resposta = 100;
