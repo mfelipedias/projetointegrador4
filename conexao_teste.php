@@ -27,9 +27,10 @@ if ($conn->query($sql) === TRUE) {
         $analisetemperatura = $array['temperatura'];
         $analiseregistro = $array['registro'];
         }
+        $alimento=date('G', strtotime($analiseregistro));
 
    if ($analiseph>=8.00) {
-    $resposta = 100;
+    $resposta = $alimento;
    }
    else {
     $resposta = 0;
