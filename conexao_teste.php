@@ -26,11 +26,14 @@ if ($conn->query($sql) === TRUE) {
         $analiseph = $array['ph'];
         $analisetemperatura = $array['temperatura'];
         $analiseregistro = $array['registro'];
+        $analisealimento = $array['alimento'];
         }
-        $alimento=date('G', strtotime($analiseregistro));
+        $hora=date('G:i:s', strtotime($analiseregistro));
+        $hora_inicio = '23:00:00';
+        $hora_fim = '23:00:04';
 
-   if ($analiseph>=8.00) {
-    $resposta = $alimento;
+   if ($hora >= $hora_inicio && $hora <= $hora_fim) {
+    $resposta = 100;
    }
    else {
     $resposta = 0;
