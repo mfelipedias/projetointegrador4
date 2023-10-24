@@ -18,7 +18,17 @@ $ph = $_POST['ph'];
 $sql = "INSERT INTO dados_sensor (temperatura, ph) VALUES ('$temperatura', '$ph')";
 if ($conn->query($sql) === TRUE) {
    
-   if ($ph>=8.00) {
+    include 'db.php';
+    $sql = "SELECT * FROM `dados_sensor` ORDER BY registro DESC LIMIT 1";
+    $busca = mysqli_query($db, $sql);
+
+    while ($array = mysqli_fetch_array($busca)) {
+        $analiseph = $array['ph'];
+        $analisetemperatura = $array['temperatura'];
+        $analiseregistro = $array['registro'];
+        }
+
+   if ($analiseph>=8.00) {
     $resposta = 100;
    }
    else {
@@ -33,4 +43,3 @@ if ($conn->query($sql) === TRUE) {
 echo $resposta;
 
 $conn->close();
-?>
