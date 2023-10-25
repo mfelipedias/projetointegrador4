@@ -25,7 +25,7 @@ while ($array = mysqli_fetch_array($busca)) {
     $analisealimento = $array['alimento'];
 }
 
-$sqlupdate = "UPDATE dados_sensor SET alimento = '$nalimento' WHERE nome = '$id'";
+$sqlupdate = "UPDATE dados_sensor SET alimento = '$nalimento' WHERE id = '$id'";
 
 if ($conn->query($sqlupdate) === TRUE) {
     echo "Registro atualizado com sucesso!";
