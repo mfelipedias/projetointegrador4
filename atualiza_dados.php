@@ -57,9 +57,9 @@
                                 $alimento = $array['alimento'];
                             ?>
                                 <tr>
-                                    <th scope="row"><?php if ($alimento==1){echo "3seg";}else{echo "1seg";}?></th>
-                                    <td><?php echo date('d/m/Y G:i:s', strtotime($registro)) ?></td>
-                                    <td class="text-primary"><?php echo $ph; ?></td>
+                                    <th scope="row" class="text-success"><?php if ($alimento==1){echo "53,0g";}else{echo "26,5g";}?></th>
+                                    <td class="text-primary"><?php echo date('d/m/Y G:i:s', strtotime($registro)) ?></td>
+                                    <td><?php echo $ph; ?></td>
                                     <td><?php echo $temperatura; ?></td>
                                 </tr>
                             <?php } ?>
@@ -105,7 +105,7 @@
         var options = {
             chart: {
                 title: 'Leituras de pH e Temperatura',
-                subtitle: 'Ultimas 12 leituras'
+                subtitle: 'Leituras do ultimo minuto'
             },
 
         };
