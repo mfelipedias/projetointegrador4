@@ -13,7 +13,6 @@ if ($conn->connect_error) {
 
 // Insere os dados na tabela 'dados_sensor'
 $alimento = $_POST['alimento'];
-$nalimento = intval($alimento);
 include 'db.php';
 $sql = "SELECT * FROM `dados_sensor` ORDER BY registro DESC LIMIT 1";
 $busca = mysqli_query($db, $sql);
@@ -25,7 +24,7 @@ while ($array = mysqli_fetch_array($busca)) {
     $analisealimento = $array['alimento'];
 }
 
-$sqlupdate = "UPDATE dados_sensor SET alimento = '$nalimento' WHERE id = '$id'";
+$sqlupdate = "UPDATE dados_sensor SET alimento = '$alimento' WHERE id = '$id'";
 
 if ($conn->query($sqlupdate) === TRUE) {
     echo "Registro atualizado com sucesso!";
