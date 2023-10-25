@@ -28,22 +28,13 @@ if ($conn->query($sql) === TRUE) {
         $analiseregistro = $array['registro'];
         $analisealimento = $array['alimento'];
         }
-        $hora=date('G:i:s', strtotime($analiseregistro));
-        $hora_inicio = '0:17:00';
-        $hora_fim = '0:17:04';
-
-   if ($hora >= $hora_inicio && $hora <= $hora_fim) {
-    $resposta = 100;
-   }
-   else {
-    $resposta = 0;
-   }
-} else {
-    $conn->error;
-    $resposta = 200;
-
-}
-
-echo $resposta;
-
+        $hora=intval(date('G', strtotime($analiseregistro)));
+        $minuto = intval(date('i', strtotime($analiseregistro)));
+        $segundo = intval(date('s', strtotime($analiseregistro)));
+        echo $resposta=$hora.$minuto.$segundo;
+        
+        } else {
+            echo 0;
+        }
 $conn->close();
+?>
