@@ -39,31 +39,30 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
+                                <th scope="col">Alimento</th>
                                 <th scope="col">Data e Hora</th>
                                 <th scope="col">pH</th>
                                 <th scope="col">Temperatura</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>02/10/2023 15:00:27</td>
-                                <td class="text-primary">7.65</td>
-                                <td>26.95</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>01/10/2023 15:00:25</td>
-                                <td class="text-primary">7.87</td>
-                                <td>28.52</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>30/09/2023 15:00:12</td>
-                                <td class="text-primary">7.54</td>
-                                <td>29.17</td>
-                            </tr>
+                            <?php
+                            include 'db.php';
+                            $sql = "SELECT * FROM `dados_sensor` WHERE alimento=1 OR alimento=2 ORDER BY registro DESC LIMIT 4";
+                            $busca = mysqli_query($db, $sql);
+                            while ($array = mysqli_fetch_array($busca)) {
+                                $ph = $array['ph'];
+                                $temperatura = $array['temperatura'];
+                                $registro = $array['registro'];
+                                $alimento = $array['alimento'];
+                            ?>
+                                <tr>
+                                    <th scope="row"><?php if ($alimento==1){echo "3seg";}else{echo "1seg";}?></th>
+                                    <td><?php echo date('d/m/Y G:i:s', strtotime($registro)) ?></td>
+                                    <td class="text-primary"><?php echo $ph; ?></td>
+                                    <td><?php echo $temperatura; ?></td>
+                                </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>

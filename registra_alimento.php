@@ -19,9 +19,6 @@ $busca = mysqli_query($db, $sql);
 
 while ($array = mysqli_fetch_array($busca)) {
     $id = $array['id'];
-    $analisetemperatura = $array['temperatura'];
-    $analiseregistro = $array['registro'];
-    $analisealimento = $array['alimento'];
 }
 
 $sqlupdate = "UPDATE dados_sensor SET alimento = '$alimento' WHERE id = '$id'";
